@@ -31,3 +31,9 @@ const express = require('express');
 const app = express();
 app.get('/', (req, res) => res.send('Bridge active'));
 app.listen(3000, () => console.log('Keep-alive running'));
+const qrcode = require('qrcode-terminal'); // Add at top with other requires
+
+client.on('qr', qr => {
+  qrcode.generate(qr, { small: true }); // This will show a proper QR
+  console.log("Scan the QR code above with WhatsApp");
+});
